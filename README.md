@@ -1,4 +1,4 @@
-# Seokgukim's Problem Solving Repository
+# SeokguKim's Problem Solving Repository
 
 **김석구의 문제풀이 레포지토리**
 
