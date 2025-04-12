@@ -1,0 +1,10 @@
+# Disable all
+/*
+# Except these
+!/docs
+!/docs/**
+!/samples
+!/samples/**
+!README.*
+!LISENCE
+!.gitignore
