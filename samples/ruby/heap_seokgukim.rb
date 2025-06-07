@@ -1,11 +1,11 @@
 class Heap
     def initialize
      	@heap = []
-  	end
+    end
 
 	def insert(value)
 		@heap << value
-		bubble_up(@heap.size - 1)
+		heapify_up(@heap.size - 1)
 	end
 
 	def pop
@@ -13,7 +13,7 @@ class Heap
 		root = @heap[0]
 		swap(0, @heap.size - 1)
 		@heap.pop
-		bubble_down(0)
+		heapify_down(0)
 		return root
 	end
 
@@ -37,7 +37,7 @@ class Heap
 		return if index == 0 || @heap[index] <= @heap[parent_index]
 
 		swap(index, parent_index)
-		bubble_up(parent_index)
+		heapify_up(parent_index)
 	end
 
 	def heapify_down(index)
