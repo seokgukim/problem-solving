@@ -31,7 +31,7 @@ def kmp_search(source, pattern)
     while j > 0 && source[i] != pattern[j]
       j = table[j - 1]
     end
-    if text[i] == pattern[j]
+    if source[i] == pattern[j]
       if j == m - 1
         occurrences << (i - m + 1) # Match found, store the starting index
         j = table[j]
