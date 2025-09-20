@@ -13,6 +13,7 @@ class FlowGraph
   end
 
   attr_reader :graph
+
   def initialize(flow_max = 10**18)
     @flow_max = flow_max
     @graph = Hash.new { |h, k| h[k] = [] }
@@ -52,6 +53,7 @@ class FlowGraph
     max_flow = 0
     while (parent = bfs_edmonds_karp(source, sink)) # Find an augmenting path
       break if parent[sink].nil? # No more augmenting path
+
       increment = @flow_max
       # Trace back the path and find the minimum capacity
       v = sink
@@ -134,6 +136,7 @@ class FlowGraph
       if node == sink
         return parent # Found an augmenting path
       end
+
       @graph[node].each do |edge|
         if edge.capacity - edge.flow > 0 && parent[edge.to].nil?
           parent[edge.to] = edge

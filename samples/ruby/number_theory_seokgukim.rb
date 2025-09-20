@@ -5,6 +5,7 @@ def mul_inv(a, b)
   b0 = b
   x0, x1 = 0, 1
   return 1 if b == 1
+
   while a > 1
     q = a / b
     a, b = b, a % b
@@ -24,11 +25,11 @@ end
 def extended_gcd(a, b)
   # Extended Euclidean Algorithm (non-recursive)
   # Returns [gcd, x, y] where gcd = a*x + b*y
-  
+
   prev_r, r = a, b
   prev_s, s = 1, 0
   prev_t, t = 0, 1
-  
+
   while r != 0
     quotient = prev_r / r
     prev_r, r = r, prev_r - quotient * r
@@ -47,6 +48,7 @@ def crt_general(congruences)
   congruences[1..].each do |(a, m)|
     g = m0.gcd(m)
     return [-1, -1] if (a0 - a) % g != 0
+
     gg, pp, qq = extended_gcd(m0 / g, m)
     mod = m0.lcm(m)
     x = (a0 * (m / g) * qq + a * (m0 / g) * pp) % mod

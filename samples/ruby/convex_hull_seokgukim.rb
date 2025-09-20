@@ -6,6 +6,7 @@ def ccw(p, q, r)
   result = (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0])
   return 1 if result > 0
   return -1 if result < 0
+
   0
 end
 

@@ -39,7 +39,7 @@ def dual_pivot_quick_sort(arr, operator = :<)
   stack = []
   stack.push([0, arr.length - 1])
 
-  while !stack.empty? 
+  while !stack.empty?
     s_idx, e_idx = stack.pop
     # Ensure arr[s_idx] <= arr[e_idx]
     if arr[s_idx].send(operator, arr[e_idx]) == false
@@ -226,7 +226,6 @@ if __FILE__ == $0
     [3, 3, 3, 3, 3],
     []
   ] if test_arrays.empty?
-  
 
   sorting_algorithms = {
     "Quick Sort" => method(:quick_sort),

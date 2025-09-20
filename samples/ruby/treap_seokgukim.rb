@@ -149,7 +149,7 @@ class Treap
   def _count_less(node, key)
     return 0 unless node
 
-    if key <= node.key 
+    if key <= node.key
       _count_less(node.left, key)
     else
       (node.left ? node.left.size : 0) + 1 + _count_less(node.right, key)

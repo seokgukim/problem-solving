@@ -9,11 +9,11 @@ class FFT
     @data += [0] * (next_pow2 - data.length) if data.length != next_pow2
   end
 
-  def fft(iterative=false)
+  def fft(iterative = false)
     iterative ? iterative_fft : recursive_fft
   end
 
-  def ifft(iterative=false)
+  def ifft(iterative = false)
     n = @data.length
     conjugated = @data.map(&:conj)
     fft_instance = FFT.new(conjugated)
@@ -23,6 +23,7 @@ class FFT
 
   def *(other)
     raise "You can only multiply with another FFT instance" unless other.is_a?(FFT)
+
     # Pad both to the next power of two of their combined length
     new_length = 1 << (Math.log2(@data.length + other.data.length - 1).ceil)
     @data += [0] * (new_length - @data.length) if @data.length != new_length
@@ -43,7 +44,7 @@ class FFT
   def recursive_fft
     n = @data.length
     return @data if n <= 1
-  
+
     # Divide and conquer
     even = FFT.new(@data.each_slice(2).map(&:first)).fft()
     odd = FFT.new(@data.each_slice(2).map(&:last)).fft()
@@ -70,6 +71,7 @@ class FFT
       rev
     end
   end
+
   # Reorder data based on bit-reversed indices
   # if original data = [a0, a1, a2, a3, a4, a5, a6, a7]
   # then the reordered = [a0, a4, a2, a6, a1, a5, a3, a7]

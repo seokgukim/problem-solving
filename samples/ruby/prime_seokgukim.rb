@@ -20,6 +20,7 @@ def pollards_rho(n)
   end
 
   return ret if ret.prime?
+
   (2..n).each do |i|
     if n % i == 0
       return i if i.prime?
@@ -43,6 +44,7 @@ end
 # Function to calculate Euler's Totient function
 def eulers_phi(n)
   return 1 if n == 1
+
   factors = factorize(n).uniq
   result = n
   factors.each do |p|
@@ -54,6 +56,7 @@ end
 # O(sqrt(n)) primality test
 def naive_is_prime?(n)
   return false if n <= 1
+
   (2..Integer.sqrt(n)).each do |i|
     return false if n % i == 0
   end
@@ -75,4 +78,3 @@ def sieve(n)
 
   return primes
 end
-

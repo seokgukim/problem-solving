@@ -4,6 +4,7 @@ require_relative "heap_seokgukim"
 
 class PathNode
   attr_reader :node, :cost
+
   def initialize(node, cost)
     @node = node
     @cost = cost
@@ -20,7 +21,7 @@ class PathNode
 
   def <=(other)
     !self.>(other)
-  end    
+  end
 
   # Helper function to get values
   def to_a
@@ -39,7 +40,7 @@ def dijkstra(graph, start)
   until heap.empty?
     cur, u = heap.pop.to_a
     next if dist[u] < cur
-    
+
     graph[u].each do |v, cost|
       next if dist[v] <= dist[u] + cost
 
