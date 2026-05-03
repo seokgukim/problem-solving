@@ -5,6 +5,8 @@
 !/docs/**
 !/samples
 !/samples/**
+!/run.sh
+!/run.ps1
 !README.*
 !LISENCE
 !.gitignore
